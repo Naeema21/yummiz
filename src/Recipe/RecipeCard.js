@@ -4,7 +4,7 @@ const RecipeCard = React.memo((props) => {
   return (
     <div className="card">
       <div className="card-head">
-        <img alt="recipe " src={props.img} className="img-fluid" />
+        <img src={props.img} className="img-fluid" />
       </div>
       <div className="card-body">
         <h1>{props.title}</h1>

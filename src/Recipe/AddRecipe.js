@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 const AddRecipe = () => {
   let navigate = useNavigate();
@@ -7,16 +9,35 @@ const AddRecipe = () => {
   const [name, setname] = useState("");
   const [image, setimage] = useState("");
   const [recipe, setrecipe] = useState("");
+  const [ingredients, setIngredients] = useState("");
 
-  const handleRecipe = () => {
+  const handleRecipe = (e) => {
+    e.preventDefault();
     const data = {
       name: name,
       image: image,
-      recipe: recipe
+      recipe: recipe,
+      ingredients: ingredients
     };
 
     console.log(data);
-    navigate("/");
+
+    axios.post("https://api-yummiz.herokuapp.com/recipe", data).then((res) => {
+      console.log(res);
+      if (res.status === "200") {
+        swal({
+          title: "Thank You For adding",
+          timer: 2000
+        }).then(() => {
+          navigate("/");
+        });
+      } else {
+        swal({
+          title: "Something went wrong!",
+          timer: 2000
+        });
+      }
+    });
   };
   return (
     <>
@@ -39,6 +60,14 @@ const AddRecipe = () => {
                   placeholder="Enter image url"
                   type="text"
                   onChange={(e) => setimage(e.target.value)}
+                />
+
+                <textarea
+                  required
+                  className="form-control my-2"
+                  placeholder="Ingredients"
+                  rows={2}
+                  onChange={(e) => setIngredients(e.target.value)}
                 />
 
                 <textarea
