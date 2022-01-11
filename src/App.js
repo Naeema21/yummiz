@@ -6,7 +6,10 @@ import AddRecipe from "./Recipe/AddRecipe";
 export default function App() {
   return (
     <div className="App">
-      <div className="header mb-4 d-flex justify-content-between flex-wrap">
+      <div
+        className="header mb-3 d-flex 
+      justify-content-between flex-wrap"
+      >
         <h1>Yummiz</h1>
         <a href="/add-recipe">Add Recipe</a>
       </div>

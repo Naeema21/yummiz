@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const AddRecipe = () => {
+  let navigate = useNavigate();
+
   const [name, setname] = useState("");
   const [image, setimage] = useState("");
   const [recipe, setrecipe] = useState("");
@@ -12,6 +16,7 @@ const AddRecipe = () => {
     };
 
     console.log(data);
+    navigate("/");
   };
   return (
     <>
@@ -22,12 +27,14 @@ const AddRecipe = () => {
             <div className="col-lg-8 card">
               <form onSubmit={handleRecipe}>
                 <input
+                  required
                   placeholder="title"
                   type="text"
                   className="form-control my-2"
                   onChange={(e) => setname(e.target.value)}
                 />
                 <input
+                  required
                   className="form-control my-2"
                   placeholder="Enter image url"
                   type="text"
@@ -35,6 +42,7 @@ const AddRecipe = () => {
                 />
 
                 <textarea
+                  required
                   className="form-control my-2"
                   placeholder="recipe"
                   rows={5}
