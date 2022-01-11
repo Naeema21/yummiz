@@ -14,9 +14,9 @@ const AddRecipe = () => {
   const handleRecipe = (e) => {
     e.preventDefault();
     const data = {
-      name: name,
-      image: image,
-      recipe: recipe,
+      title: name,
+      img: image,
+      process: recipe,
       ingredients: ingredients
     };
 
@@ -24,7 +24,7 @@ const AddRecipe = () => {
 
     axios.post("https://api-yummiz.herokuapp.com/recipe", data).then((res) => {
       console.log(res);
-      if (res.status === "200") {
+      if (res.status === 201) {
         swal({
           title: "Thank You For adding",
           timer: 2000
@@ -45,11 +45,12 @@ const AddRecipe = () => {
         <div className="container">
           <div className="row ">
             <div className="col-lg-2"></div>
-            <div className="col-lg-8 card">
+            <div className="col-lg-8 card text-center">
+              <h3> Add Recipe</h3>
               <form onSubmit={handleRecipe}>
                 <input
                   required
-                  placeholder="title"
+                  placeholder="Title"
                   type="text"
                   className="form-control my-2"
                   onChange={(e) => setname(e.target.value)}
@@ -73,7 +74,7 @@ const AddRecipe = () => {
                 <textarea
                   required
                   className="form-control my-2"
-                  placeholder="recipe"
+                  placeholder="Recipe"
                   rows={5}
                   onChange={(e) => setrecipe(e.target.value)}
                 />
