@@ -1,2 +1,1 @@
-# yummiz
-Created with CodeSandbox
+# yummizz
