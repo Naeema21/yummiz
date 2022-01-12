@@ -10,7 +10,7 @@ const RecipeCard = React.memo((props) => {
       <div className="card-body">
         <h1>{props.title}</h1>
         <p className="text-dark">{props.process.substring(0, 125)}...</p>
-        <div className="d-flex justify-content-end">
+        <div className="d-flex justify-content-end read-more">
           <Link to={"/" + props.id + "/" + props.title} className="back">
             Read More
           </Link>

@@ -15,7 +15,7 @@ const Recipe = () => {
           <div className="row">
             {data.map((v, i) => {
               return (
-                <div className="col-lg-4 mb-2" key={i}>
+                <div className="col-lg-4 col-md-6 mb-2" key={i}>
                   <RecipeCard
                     id={v._id}
                     title={v.title}
