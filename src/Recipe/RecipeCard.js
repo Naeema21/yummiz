@@ -1,16 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RecipeCard = React.memo((props) => {
   return (
-    <div className="card">
+    <Link className="card" to={"/" + props.id + "/" + props.title}>
       <div className="card-head">
         <img src={props.img} alt="recipe" width="100%" height="210px" />
       </div>
       <div className="card-body">
         <h1>{props.title}</h1>
-        <p>{props.process.substring(0, 85)}...</p>
+        <p className="text-dark">{props.process.substring(0, 125)}...</p>
+        <div className="d-flex justify-content-end">
+          <Link to={"/" + props.id + "/" + props.title} className="back">
+            Read More
+          </Link>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 });
 

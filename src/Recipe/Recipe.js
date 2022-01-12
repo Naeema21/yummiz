@@ -16,7 +16,12 @@ const Recipe = () => {
             {data.map((v, i) => {
               return (
                 <div className="col-lg-4 mb-2" key={i}>
-                  <RecipeCard title={v.title} img={v.img} process={v.process} />
+                  <RecipeCard
+                    id={v._id}
+                    title={v.title}
+                    img={v.img}
+                    process={v.process}
+                  />
                 </div>
               );
             })}

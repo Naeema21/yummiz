@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import swal from "sweetalert";
 
 const AddRecipe = () => {
@@ -79,7 +79,12 @@ const AddRecipe = () => {
                   onChange={(e) => setrecipe(e.target.value)}
                 />
 
-                <button type="submit">Add Recipe</button>
+                <div className="d-flex justify-content-between">
+                  <button type="submit">Add Recipe</button>
+                  <Link className="back" to="/">
+                    Back
+                  </Link>
+                </div>
               </form>
             </div>
             <div className="col-lg-2"></div>
