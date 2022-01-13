@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-const RecipeDetails = ({ match }) => {
+const RecipeDetails = () => {
   const [Data, setData] = useState({});
   const { id } = useParams();
 
@@ -10,7 +10,7 @@ const RecipeDetails = ({ match }) => {
     axios.get(`https://api-yummiz.herokuapp.com/recipe/${id}`).then((res) => {
       setData(res.data);
     });
-  });
+  }, []);
   return (
     <div className="recipe-details">
       <div className="container">
